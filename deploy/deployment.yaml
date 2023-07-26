@@ -18,7 +18,7 @@ spec:
         app: accounts
     spec:
       containers:
-      - image: registry.redhat.io/rhscl/postgresql-95-rhel7
+      - image: IMAGE_NAME_HERE
         name: accounts
         ports:
           - name: vprodb-port
