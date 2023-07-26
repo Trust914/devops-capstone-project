@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: accounts
+  name: accounts
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: accounts
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: accounts
+    spec:
+      containers:
+      - image: registry.redhat.io/rhscl/postgresql-95-rhel7
+        name: accounts
+        ports:
+          - name: vprodb-port
+            containerPort: 5432
+        resources: {}
+        
+        env:
+          - name: POSTGRESQL_USER
+            value: admin
+          - name: POSTGRESQL_DATABASE
+            value: account
+          - name: POSTGRESQL_PASSWORD
+            value: admin
+          - name: POSTGRESQL_ADMIN_PASSWORD
+            value: admin
+status: {}
